@@ -1,0 +1,70 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export function getStaticPaths() {
+  // Placeholder paths - update with real project data
+  return [
+    { params: { slug: 'project-1' }, props: { title: 'Project 1', description: 'A sample project description.' } },
+    { params: { slug: 'project-2' }, props: { title: 'Project 2', description: 'Another sample project.' } },
+  ];
+}
+
+const { slug } = Astro.params;
+const { title, description } = Astro.props;
+---
+
+<MainLayout title={`${title} • Seán Halpin`}>
+  <article class="project-page">
+    <header class="project-header">
+      <h1>{title}</h1>
+      <p class="project-description">{description}</p>
+    </header>
+
+    <div class="project-content">
+      <p>Project content for {slug} will go here.</p>
+    </div>
+
+    <a href="/" class="back-link">← Back to Home</a>
+  </article>
+</MainLayout>
+
+<style>
+  .project-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: calc(var(--64px) * 2) var(--24px);
+  }
+
+  .project-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .project-description {
+    font-size: var(--font-h3);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-m);
+  }
+
+  .project-content {
+    background: var(--color-opaque);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-base);
+    padding: var(--64px);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .back-link {
+    display: inline-flex;
+    font-size: var(--font-link);
+    color: var(--color-text-secondary);
+    padding: calc(var(--16px) - 10px) var(--20px);
+    border-radius: var(--24px);
+    transition: all .2s ease-in-out;
+  }
+
+  .back-link:hover {
+    color: var(--color-text-primary);
+    background: var(--color-white50);
+  }
+</style>
