@@ -1,0 +1,102 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Seán Halpin • Product Designer">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Seán Halpin</h1>
+      <p class="subtitle">Product Designer</p>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Content Sections will go here -->
+    <section id="content" class="content-area">
+      <p>Welcome to my portfolio. I'm a product designer focused on creating meaningful digital experiences.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; {new Date().getFullYear()} Seán Halpin. All rights reserved.</p>
+      </div>
+    </footer>
+  </main>
+</MainLayout>
+
+<style>
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--64px) var(--24px);
+  }
+
+  .subtitle {
+    font-size: var(--font-h3);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-m);
+  }
+
+  .main-nav {
+    position: fixed;
+    top: var(--20px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--zindex-nav);
+    background: var(--color-white30);
+    backdrop-filter: blur(20px) saturate(1.7);
+    -webkit-backdrop-filter: blur(20px) saturate(1.7);
+    border-radius: 50px;
+    padding: var(--14px) var(--24px);
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--16px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    font-size: var(--font-link);
+    color: var(--color-text-secondary);
+    padding: calc(var(--16px) - 10px) var(--20px);
+    border-radius: var(--24px);
+    transition: all .2s ease-in-out;
+  }
+
+  .main-nav a:hover {
+    color: var(--color-text-primary);
+    background: var(--color-white50);
+  }
+
+  .content-area {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: calc(var(--64px) * 2) var(--24px);
+  }
+
+  .site-footer {
+    padding: var(--spacing-xl) var(--24px);
+    text-align: center;
+  }
+
+  .footer-content p {
+    font-size: var(--font-mini);
+    color: var(--color-text-secondary);
+  }
+</style>
